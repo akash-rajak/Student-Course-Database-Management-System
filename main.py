@@ -1,3 +1,21 @@
+
+'''
+Constraints :
+    i.) (Save and update)Batch mentor must be same, who is registering
+    ii.) (Save)If student id is already registered, then again login details will not be sent to student via mail, and again data will not be inserted in the student1 table
+    iii.) (Save and update)year and semester are selected in pair that matches
+    iv.) (save and update)Details should match with previously registered student, if going to other semester or year
+    v.) (save)If a student is in a particular sem and year, then he/she will be able to get registered only for the next combination of year and semester
+    vi.) (update)will not be able to change the student id (assumed that person will update by filling the column by selecting the row from table) i.e set function then update
+    vii.) (save and update)duplicate row cannot be inserted
+    viii.) IMP : here we are considering not to update Sem and year once inserted
+    ix.) if student fails in any subject in any course, his/her sgpa = 0.0
+    x.) update will be done, for student with stud_id, sem comparison, not only stud_id(as it is not primary key)
+    xi.) if subject button clicked by selecting unmatched year and sem, show error message
+
+'''
+
+
 # import tkinter
 from tkinter import *
 from tkinter import ttk
