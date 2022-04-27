@@ -38,6 +38,10 @@ TRUNCATE TABLE students;
 TRUNCATE TABLE admin1;
 TRUNCATE TABLE student1;
 
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM student1 where stud_id = 2;
+UPDATE students SET sgpa = 8.0 where sid=1 and semester="SEM-2";
+
 SELECT * FROM students;
 SELECT * FROM admin1;
 SELECT * FROM student1;
