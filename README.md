@@ -39,6 +39,13 @@
 ### SCREENSHOTS :
 
 <p align="center">
+  <img width = 1000 src="Screenshots/1.jpg" /><br>
+  <img width = 1000 src="Screenshots/2.jpg" /><br>
+  <img width = 1000 src="Screenshots/3.jpg" /><br>
+  <img width = 1000 src="Screenshots/4.jpg" /><br>
+  <img width = 1000 src="Screenshots/5.jpg" /><br>
+  <img width = 1000 src="Screenshots/6.jpg" /><br>
+  <img width = 1000 src="Screenshots/7.jpg" /><br>
 </p>
 
 
