@@ -12,6 +12,7 @@ Constraints :
     ix.) if student fails in any subject in any course, his/her sgpa = 0.0
     x.) update will be done, for student with stud_id, sem comparison, not only stud_id(as it is not primary key)
     xi.) if subject button clicked by selecting unmatched year and sem, show error message
+    xii.) Batch mentor will be able to see only student which are being mentored by him/her
 
 '''
 
@@ -307,7 +308,7 @@ class faculty_class:
         search_by.place(x=5, y=5, width=110)
 
         serchby_combo = ttk.Combobox(ss_frame,textvariable=self.var_searchby, font=("Verdana", 10), state="readonly")
-        serchby_combo["values"] = ("Select", "Student Id", "Student Name", "Department", "Course","Reg_No","Gender","Address","Batch_Mentor")
+        serchby_combo["values"] = ("Select", "Student Id", "Student Name", "Department", "Course","Reg_No","Gender","Address")
         serchby_combo.current(0)
         serchby_combo.place(x=120, y=5, width=120, height=30)
 
@@ -4099,9 +4100,13 @@ class faculty_class:
 
     # FETCH DATA INTO TABLE  FROM DATABASE
     def fetch_data(self):
+        global fname
         conn=mysql.connector.connect(host="localhost",username="root",password="blanklogin!1",database="dbms_project")
         my_cursor=conn.cursor()
-        my_cursor.execute("select * from students")
+        str1 = "\""
+        # xii.) Batch mentor will be able to see only student which are being mentored by him/her
+        q1 = f"select * from students where teacher={str1 + fname + str1}"
+        my_cursor.execute(q1)
         data = my_cursor.fetchall()
 
         if len(data)!=0:
