@@ -4019,7 +4019,7 @@ class faculty_class:
             for x in x1:
                 lis1 = list(x)
                 if (lis1 == lis):
-                    messagebox.showerror("Error", "Duplicate Data cannot be inserted.", parent=self.root)
+                    messagebox.showerror("Error", "Duplicate Data cannot be inserted.", parent=self.root) # this will also come when sgpa is update but it came out to be same
                     return
 
             # iv.) checking details must match with the existing student
@@ -4313,8 +4313,9 @@ if __name__ == "__main__":
                 sgpa_lis = []
                 v = 0.0
                 c = 0
+                # print(x)
                 for i in range(0,8):
-                    if(i<len(x) and x[i][14]!=""):
+                    if(i<len(x) and x[i][14]!="0.0"):
                         sgpa_lis.append(x[i][14])
                         v = v + float(x[i][14])
                         c = c + 1
