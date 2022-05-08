@@ -3885,7 +3885,7 @@ class faculty_class:
     # SAVE BUTTON FUNCTION
     def save_data(self):
         global var_sgpa, fname
-        conn1 = mysql.connector.connect(host="localhost", username="root", password="blanklogin!1",database="dbms_project")
+        conn1 = mysql.connector.connect(host="localhost", username="root", password="",database="dbms_project")
         my_cursor1 = conn1.cursor()
 
         if self.var_dep.get() != "Select Department" or self.var_course.get() != "Select Course" or self.var_year.get() != "Select Year" or self.var_semester.get() != "Select Semester" or self.var_sid.get() != ""  or self.var_sname.get() != "" or self.var_reg.get() != "" or self.var_roll.get() != "" or self.var_gender.get() != "Select Gender" or self.var_email.get() != "" or self.var_phone.get() != "" or self.var_address.get() != "" or self.var_teacher.get() != "":
@@ -3952,7 +3952,7 @@ class faculty_class:
             messagebox.showerror("Error","All fields are Required",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="blanklogin!1",database="dbms_project")
+                conn=mysql.connector.connect(host="localhost",username="root",password="",database="dbms_project")
                 my_cursor=conn.cursor()
                 my_cursor.execute("insert into students values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(self.var_dep.get(),self.var_course.get(),self.var_year.get(),self.var_semester.get(),self.var_sid.get(),self.var_sname.get(),self.var_reg.get(),self.var_roll.get(),self.var_gender.get(),self.var_dob.get(),self.var_email.get(),self.var_phone.get(),self.var_address.get(),self.var_teacher.get(), var_sgpa))
 
@@ -3977,7 +3977,7 @@ class faculty_class:
                     smtpserver.ehlo()
                     smtpserver.starttls()
                     smtpserver.ehlo()
-                    smtpserver.login('aakashrajak02@gmail.com', 'blanklogin!1')
+                    smtpserver.login('aakashrajak02@gmail.com', '')
                     subject = "Login Details for Student"
                     email_body = "Your Student ID is : " + str(self.var_sid.get()) + "\nYour password is : " + password
                     finalMessage = 'Subject: {}\n\n{} '.format(subject, email_body)
@@ -3990,7 +3990,7 @@ class faculty_class:
     # UPDATE BUTTON FUNCTION
     def update_data(self):
         global var_sgpa, fname, prev_id
-        conn1 = mysql.connector.connect(host="localhost", username="root", password="blanklogin!1",database="dbms_project")
+        conn1 = mysql.connector.connect(host="localhost", username="root", password="",database="dbms_project")
         my_cursor1 = conn1.cursor()
 
         if self.var_dep.get() != "Select Department" or self.var_course.get() != "Select Course" or self.var_year.get() != "Select Year" or self.var_semester.get() != "Select Semester" or self.var_sid.get() != "" or self.var_sname.get() != "" or self.var_reg.get() != "" or self.var_roll.get() != "" or self.var_gender.get() != "Select Gender" or self.var_email.get() != "" or self.var_phone.get() != "" or self.var_address.get() != "" or self.var_teacher.get() != "":
@@ -4048,7 +4048,7 @@ class faculty_class:
             try:
                 update=messagebox.askyesno("Update","Do you want to update the details",parent=self.root)
                 if update>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="blanklogin!1",database="dbms_project")
+                    conn=mysql.connector.connect(host="localhost",username="root",password="",database="dbms_project")
                     my_cursor=conn.cursor()
                     # x.) update will be done, for student with stud_id, sem comparison, not only stud_id(as it is not primary key)
                     my_cursor.execute("update students set dep=%s,course=%s,sname=%s,reg=%s,roll=%s,gender=%s,dob=%s,email=%s,phone=%s,address=%s,teacher=%s,sgpa=%s  where sid=%s and semester=%s",(self.var_dep.get(),self.var_course.get(),self.var_sname.get(),self.var_reg.get(),self.var_roll.get(),self.var_gender.get(),self.var_dob.get(),self.var_email.get(),self.var_phone.get(),self.var_address.get(),self.var_teacher.get(),var_sgpa,self.var_sid.get(),self.var_semester.get()))
@@ -4069,7 +4069,7 @@ class faculty_class:
             try:
                 delete=messagebox.askyesno("Delete","Do you want to delete the Student",parent=self.root)
                 if delete>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="blanklogin!1",database="dbms_project")
+                    conn=mysql.connector.connect(host="localhost",username="root",password="",database="dbms_project")
                     my_cursor=conn.cursor()
                     my_cursor.execute("delete from students where sid=%s",(self.var_sid.get(),))
                     conn.commit()
@@ -4101,7 +4101,7 @@ class faculty_class:
     # FETCH DATA INTO TABLE  FROM DATABASE
     def fetch_data(self):
         global fname
-        conn=mysql.connector.connect(host="localhost",username="root",password="blanklogin!1",database="dbms_project")
+        conn=mysql.connector.connect(host="localhost",username="root",password="",database="dbms_project")
         my_cursor=conn.cursor()
         str1 = "\""
         # xii.) Batch mentor will be able to see only student which are being mentored by him/her
@@ -4118,8 +4118,7 @@ class faculty_class:
 
     # FETCH DATA AFTER CLICKING ON SEARCH BUTTON
     def search_func(self):
-        conn = mysql.connector.connect(host="localhost", username="root", password="blanklogin!1",
-                                       database="dbms_project")
+        conn = mysql.connector.connect(host="localhost", username="root", password="",database="dbms_project")
         my_cursor = conn.cursor()
         if self.var_searchby.get() == "Select":
             messagebox.showerror("Error", "Select an Attribute", parent=self.root)
@@ -4256,7 +4255,7 @@ if __name__ == "__main__":
                 panel44.place(x=1050, y=100)
 
 
-                db = mysql.connector.connect(host="localhost", username="root", password="blanklogin!1",database="dbms_project")
+                db = mysql.connector.connect(host="localhost", username="root", password="",database="dbms_project")
                 my_db = db.cursor()
                 query = f"select * from students where sid={stud_id}"
                 my_db.execute(query)
@@ -4399,7 +4398,7 @@ if __name__ == "__main__":
                     # start TLS for security
                     s.starttls()
                     # Authentication
-                    s.login("aakashrajak02@gmail.com", "blanklogin!1")
+                    s.login("aakashrajak02@gmail.com", "")
                     # Converts the Multipart msg into a string
                     text = msg.as_string()
                     # sending the mail
@@ -4423,7 +4422,7 @@ if __name__ == "__main__":
                 messagebox.showerror("Error", "All fields are Required", parent=window2)
             else:
                 try:
-                    db = mysql.connector.connect(host="localhost", username="root", password="blanklogin!1",database="dbms_project")
+                    db = mysql.connector.connect(host="localhost", username="root", password="",database="dbms_project")
                     my_db = db.cursor()
                     # str1 = "\""
                     query = f"select stud_password from student1 where stud_id={stud_id}"
@@ -4458,7 +4457,7 @@ if __name__ == "__main__":
             def submit_fun():
                 em = eentry.get()
 
-                db = mysql.connector.connect(host="localhost", username="root", password="blanklogin!1",database="dbms_project")
+                db = mysql.connector.connect(host="localhost", username="root", password="",database="dbms_project")
                 my_db = db.cursor()
                 str1 = "\""
                 query = f"select stud_id, stud_password from student1 where email1={str1 + em + str1}"
@@ -4470,7 +4469,7 @@ if __name__ == "__main__":
                     smtpserver.ehlo()
                     smtpserver.starttls()
                     smtpserver.ehlo()
-                    smtpserver.login('aakashrajak02@gmail.com', 'blanklogin!1')
+                    smtpserver.login('aakashrajak02@gmail.com', '')
                     subject = "Password Recovery for DBMS Project"
                     email_body = "Your Student ID is : " + str(x[0][0]) + "\nYour password is : " + str(x[0][1])
                     finalMessage = 'Subject: {}\n\n{} '.format(subject, email_body)
@@ -4558,7 +4557,7 @@ if __name__ == "__main__":
                 messagebox.showerror("Error", "All fields are Required", parent=window2)
             else:
                 try:
-                    db = mysql.connector.connect(host="localhost", username="root", password="blanklogin!1",database="dbms_project")
+                    db = mysql.connector.connect(host="localhost", username="root", password="",database="dbms_project")
                     my_db = db.cursor()
                     str1 = "\""
                     query = f"select pass_word from admin1 where user_name={str1 + lusername + str1}"
@@ -4585,7 +4584,7 @@ if __name__ == "__main__":
                 messagebox.showerror("Error", "All fields are Required", parent=window2)
             else:
                 try:
-                    db = mysql.connector.connect(host="localhost", username="root", password="blanklogin!1",database="dbms_project")
+                    db = mysql.connector.connect(host="localhost", username="root", password="",database="dbms_project")
                     my_db = db.cursor()
                     my_db.execute("insert into admin1 values(%s,%s,%s)", (susername,spassword,semail))
                     db.commit()
@@ -4611,7 +4610,7 @@ if __name__ == "__main__":
             def submit_fun():
                 em = eentry.get()
 
-                db = mysql.connector.connect(host="localhost", username="root", password="blanklogin!1",database="dbms_project")
+                db = mysql.connector.connect(host="localhost", username="root", password="",database="dbms_project")
                 my_db = db.cursor()
                 str1 = "\""
                 query = f"select user_name, pass_word from admin1 where email1={str1 + em + str1}"
@@ -4622,7 +4621,7 @@ if __name__ == "__main__":
                 smtpserver.ehlo()
                 smtpserver.starttls()
                 smtpserver.ehlo()
-                smtpserver.login('aakashrajak02@gmail.com', 'blanklogin!1')
+                smtpserver.login('aakashrajak02@gmail.com', '')
                 subject = "Password Recovery for DBMS Project"
                 email_body = "Your Username is : " + str(x[0][0]) + "\nYour password is : " + str(x[0][1])
                 finalMessage = 'Subject: {}\n\n{} '.format(subject, email_body)
